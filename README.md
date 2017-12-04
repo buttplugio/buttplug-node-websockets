@@ -24,7 +24,7 @@ can
 Every donation helps us afford more hardware to reverse, document, and
 write code for!
 
-### Installation
+## Installation
 
 To install buttplug-js in your node project via npm, a simple add call
 should do it.
@@ -32,6 +32,11 @@ should do it.
 ```
 npm add buttplug-node-websockets
 ```
+
+buttplug-node-websockets is considered a plugin for buttplug-js, and
+has buttplug as a peer dependency. You will need to add buttplug-js >=
+0.4.0 to the project that is using buttplug-node-websockets in order
+for this to work correctly.
 
 ## API Documentation
 
@@ -94,7 +99,6 @@ let bpc = new bp.ButtplugClient("test");
 bpc.Connect(c);
 // ...
 ```
-
 
 ## License
 
