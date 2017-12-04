@@ -41,7 +41,7 @@ for this to work correctly.
 ## API Documentation
 
 buttplug-node-websocket API Documentation is available at
-[https://metafetish.github.io/buttplug-node-websocket](https://metafetish.github.io/buttplug-node-websocket).
+[https://metafetish.github.io/buttplug-node-websockets](https://metafetish.github.io/buttplug-node-websockets).
 
 The documentation is rebuilt on every commit/merge to master.
 
