@@ -33,6 +33,11 @@ describe("Buttplug Node Websocket tests", () => {
     await p;
     await bpc.StopScanning();
     p = new Promise((resolve, reject) => { res = resolve; rej = reject; });
+    bpc.on("scanningfinished", () => {
+      res();
+    });
+    await p;
+    p = new Promise((resolve, reject) => { res = resolve; rej = reject; });
     bpc.on("deviceremoved", async () => {
       bpc.Disconnect();
       await server.StopServer();
