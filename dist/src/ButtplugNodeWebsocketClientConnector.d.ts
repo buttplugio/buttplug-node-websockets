@@ -18,17 +18,17 @@ export declare class ButtplugNodeWebsocketClientConnector extends EventEmitter i
     /***
      * Called by ButtplugClient to establish websocket connection.
      */
-    Connect(): Promise<void>;
+    Connect: () => Promise<void>;
     /***
      * Called by ButtplugClient to disconnect websocket connection.
      */
-    Disconnect(): void;
+    Disconnect: () => void;
     /***
      * Called by ButtplugClient to send a message over the websocket.
      */
-    Send(msg: any): void;
+    Send: (msg: any) => void;
     /***
      * Called by ButtplugClient to verify connection status.
      */
-    IsConnected(): boolean;
+    IsConnected: () => boolean;
 }

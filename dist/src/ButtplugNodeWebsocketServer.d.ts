@@ -6,7 +6,7 @@ import { ButtplugServer } from "buttplug";
  */
 export declare class ButtplugNodeWebsocketServer extends ButtplugServer {
     private wsServer;
-    constructor();
+    constructor(name: string, maxPingTime?: number);
     /**
      * Starts an insecure (non-ssl) instance of the server. This server will not
      * be accessible from clients/applications running on https instances.
@@ -14,7 +14,7 @@ export declare class ButtplugNodeWebsocketServer extends ButtplugServer {
      * @param port Network port to listen on (defaults to 12345)
      * @param host Host address to listen on (defaults to localhost)
      */
-    StartInsecureServer(port?: number, host?: string): void;
+    StartInsecureServer: (port?: number, host?: string) => void;
     /**
      * Starts a secure instance of the server. Requires an SSL certificate to
      * already be generated.
@@ -24,13 +24,13 @@ export declare class ButtplugNodeWebsocketServer extends ButtplugServer {
      * @param port Network port to listen on (defaults to 12345)
      * @param host Host address to listen on (defaults to localhost)
      */
-    StartSecureServer(certFilePath: string, keyFilePath: string, port?: number, host?: string): void;
+    StartSecureServer: (certFilePath: string, keyFilePath: string, port?: number, host?: string) => void;
     /**
      * Shuts down the server, closing all connections.
      */
-    StopServer(): Promise<{}>;
+    StopServer: () => Promise<{}>;
     /**
      * Used to set up server after Websocket connection created.
      */
-    private InitServer();
+    private InitServer;
 }
