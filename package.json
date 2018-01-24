@@ -2,7 +2,7 @@
   "name": "buttplug-node-websockets",
   "version": "0.0.2",
   "description": "Node Websocket Client/Server for buttplug-js",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "build": "trash dist dist-bundle && yarn build:main",
     "build:main": "tsc -p tsconfig.json",
