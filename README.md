@@ -1,6 +1,6 @@
 # Buttplug Node Websockets
 
-[![npm](https://img.shields.io/npm/v/buttplug-node-websockets.svg)](https://npmjs.com/package/buttplug-node-websockets) [![Build Status](https://travis-ci.org/metafetish/buttplug-node-websockets.svg?branch=master)](https://travis-ci.org/metafetish/buttplug-node-websockets) [![Patreon donate button](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/qdot)
+[![npm](https://img.shields.io/npm/v/buttplug-node-websockets.svg)](https://npmjs.com/package/buttplug-node-websockets) [![Build Status](https://travis-ci.org/metafetish/buttplug-node-websockets.svg?branch=master)](https://travis-ci.org/metafetish/buttplug-node-websockets) [![codecov](https://codecov.io/gh/metafetish/buttplug-node-websockets/branch/master/graph/badge.svg)](https://codecov.io/gh/metafetish/buttplug-node-websockets) [![Patreon donate button](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/qdot)
 
 buttplug-node-websockets provides convenience client/server classes
 built on top of [ws](https://github.com/websockets/ws) and
@@ -96,7 +96,7 @@ let connector =
   new ButtplugNodeWebsocket.ButtplugNodeWebsocketClientConnector("wss://localhost:12345/buttplug", false);
 
 let bpc = new bp.ButtplugClient("test");
-bpc.Connect(c);
+bpc.Connect(connector);
 // ...
 ```
 

@@ -14,8 +14,8 @@ export class ButtplugNodeWebsocketServer extends ButtplugServer {
 
   private wsServer: ws.Server | null = null;
 
-  public constructor() {
-    super();
+  public constructor(name: string, maxPingTime: number = 0) {
+    super(name, maxPingTime);
   }
 
   /**
@@ -25,7 +25,7 @@ export class ButtplugNodeWebsocketServer extends ButtplugServer {
    * @param port Network port to listen on (defaults to 12345)
    * @param host Host address to listen on (defaults to localhost)
    */
-  public StartInsecureServer(port: number = 12345, host: string = "localhost") {
+  public StartInsecureServer = (port: number = 12345, host: string = "localhost") => {
     this.wsServer = new ws.Server({host, port});
     this.InitServer();
   }
@@ -39,10 +39,10 @@ export class ButtplugNodeWebsocketServer extends ButtplugServer {
    * @param port Network port to listen on (defaults to 12345)
    * @param host Host address to listen on (defaults to localhost)
    */
-  public StartSecureServer(certFilePath: string,
-                           keyFilePath: string,
-                           port: number = 12345,
-                           host: string = "localhost") {
+  public StartSecureServer = (certFilePath: string,
+                              keyFilePath: string,
+                              port: number = 12345,
+                              host: string = "localhost") => {
     const pems: any = {};
     pems.cert = fs.readFileSync(certFilePath);
     pems.private = fs.readFileSync(keyFilePath);
@@ -57,7 +57,7 @@ export class ButtplugNodeWebsocketServer extends ButtplugServer {
   /**
    * Shuts down the server, closing all connections.
    */
-  public async StopServer() {
+  public StopServer = async () => {
     if (this.wsServer === null) {
       throw new Error("Websocket server is null!");
     }
@@ -66,14 +66,17 @@ export class ButtplugNodeWebsocketServer extends ButtplugServer {
     // wrapped it in a 2 argument closure but eh.
     let closeRes;
     const closePromise = new Promise((res, rej) => { closeRes = res; });
-    this.wsServer.close(() => closeRes());
+    this.wsServer.close(() => {
+      this.wsServer = null;
+      closeRes();
+    });
     return closePromise;
   }
 
   /**
    * Used to set up server after Websocket connection created.
    */
-  private InitServer() {
+  private InitServer = () => {
     if (this.wsServer === null) {
       throw new Error("Websocket server is null!");
     }

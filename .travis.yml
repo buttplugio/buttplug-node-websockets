@@ -8,6 +8,7 @@ script:
   - yarn tslint
   - yarn build:main
   - yarn build:doc
+  - yarn test
 
 cache: yarn
 

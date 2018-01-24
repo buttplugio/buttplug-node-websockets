@@ -1,7 +1,7 @@
 "use strict";
 import * as WebSocket from "ws";
 import { EventEmitter } from "events";
-import { FromJSON, IButtplugConnector } from "buttplug";
+import { FromJSON, IButtplugConnector, ButtplugLogger } from "buttplug";
 
 /**
  * Connector class for using the node ws library as a websocket client to a
@@ -30,7 +30,7 @@ export class ButtplugNodeWebsocketClientConnector extends EventEmitter implement
   /***
    * Called by ButtplugClient to establish websocket connection.
    */
-  public async Connect() {
+  public Connect = async () => {
     let res;
     let rej;
     const ws = new WebSocket(this.url, {
@@ -42,9 +42,12 @@ export class ButtplugNodeWebsocketClientConnector extends EventEmitter implement
     // library to state what the problem might be.
     const conErrorCallback = (ev) => rej();
     ws.on("open", async (ev) => {
+      ws.removeAllListeners();
       this.wsClient = ws;
       this.wsClient.on("message", (aMsg) => { this.emit("message", FromJSON(aMsg)); });
       this.wsClient.on("close", this.Disconnect);
+      this.wsClient.on("error", (e) =>
+                       ButtplugLogger.Logger.Info("Websocket Error (Happens on close, possibly ignorable): " + e));
       res();
     });
     ws.on("close", conErrorCallback);
@@ -54,17 +57,18 @@ export class ButtplugNodeWebsocketClientConnector extends EventEmitter implement
   /***
    * Called by ButtplugClient to disconnect websocket connection.
    */
-  public Disconnect() {
+  public Disconnect = () => {
     if (!this.IsConnected()) {
-      throw new Error("Not connected!");
+      return;
     }
     this.wsClient!.close();
+    this.wsClient = null;
   }
 
   /***
    * Called by ButtplugClient to send a message over the websocket.
    */
-  public Send(msg) {
+  public Send = (msg) => {
     if (!this.IsConnected()) {
       throw new Error("Not connected!");
     }
@@ -75,7 +79,7 @@ export class ButtplugNodeWebsocketClientConnector extends EventEmitter implement
   /***
    * Called by ButtplugClient to verify connection status.
    */
-  public IsConnected() {
+  public IsConnected = () => {
     return this.wsClient !== null;
   }
 }
