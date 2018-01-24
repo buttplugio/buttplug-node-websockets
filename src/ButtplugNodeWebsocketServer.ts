@@ -14,8 +14,8 @@ export class ButtplugNodeWebsocketServer extends ButtplugServer {
 
   private wsServer: ws.Server | null = null;
 
-  public constructor() {
-    super();
+  public constructor(name: string, maxPingTime: number = 0) {
+    super(name, maxPingTime);
   }
 
   /**
