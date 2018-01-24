@@ -96,7 +96,7 @@ let connector =
   new ButtplugNodeWebsocket.ButtplugNodeWebsocketClientConnector("wss://localhost:12345/buttplug", false);
 
 let bpc = new bp.ButtplugClient("test");
-bpc.Connect(c);
+bpc.Connect(connector);
 // ...
 ```
 
