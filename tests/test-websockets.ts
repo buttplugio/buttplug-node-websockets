@@ -14,7 +14,8 @@ describe("Buttplug Node Websocket tests", () => {
 
   it("should connect insecurely to itself, scan, find test devices", async function() {
     const server = new ButtplugNodeWebsocketServer("Buttplug Test Websocket Server");
-    server.AddDeviceManager(TestDeviceManager.Get());
+    const deviceManager = new TestDeviceManager();
+    server.AddDeviceManager(deviceManager);
     // Insecure hosting, on localhost:12345
     server.StartInsecureServer(12345, "localhost");
 
@@ -43,7 +44,7 @@ describe("Buttplug Node Websocket tests", () => {
       await server.StopServer();
       res();
     });
-    TestDeviceManager.Get().VibrationDevice.Disconnect();
+    deviceManager.VibrationDevice.Disconnect();
     return p;
   });
 
