@@ -58,7 +58,7 @@ export class ButtplugNodeWebsocketClientConnector extends EventEmitter implement
    * Called by ButtplugClient to disconnect websocket connection.
    */
   public Disconnect = () => {
-    if (!this.IsConnected()) {
+    if (!this.Connected) {
       return;
     }
     this.wsClient!.close();
@@ -69,7 +69,7 @@ export class ButtplugNodeWebsocketClientConnector extends EventEmitter implement
    * Called by ButtplugClient to send a message over the websocket.
    */
   public Send = (msg) => {
-    if (!this.IsConnected()) {
+    if (!this.Connected) {
       throw new Error("Not connected!");
     }
     // Make sure our message is packed in an array. Messy.
@@ -79,7 +79,7 @@ export class ButtplugNodeWebsocketClientConnector extends EventEmitter implement
   /***
    * Called by ButtplugClient to verify connection status.
    */
-  public IsConnected = () => {
+  public get Connected(): boolean {
     return this.wsClient !== null;
   }
 }

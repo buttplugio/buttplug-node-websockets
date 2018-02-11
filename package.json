@@ -1,6 +1,6 @@
 {
   "name": "buttplug-node-websockets",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node Websocket Client/Server for buttplug-js",
   "main": "dist/src/index.js",
   "scripts": {
@@ -27,12 +27,12 @@
     "ws": "^4.0.0"
   },
   "peerDependencies": {
-    "buttplug": ">=0.5.x"
+    "buttplug": ">=0.6.x"
   },
   "devDependencies": {
     "@types/jest": "^22.1.0",
     "@types/node": "^9.3.0",
-    "buttplug": ">=0.5.x",
+    "buttplug": ">=0.6.x",
     "codecov": "^3.0.0",
     "commander": "^2.13.0",
     "jest": "^22.1.4",
