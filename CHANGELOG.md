@@ -1,3 +1,6 @@
+# 0.0.3 (2018-02-11)
+- Migrate to buttplug 0.6.0
+
 # 0.0.2 (2018-01-24)
 
 - Update dependencies

@@ -1,6 +1,6 @@
 {
   "name": "buttplug-node-websockets",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node Websocket Client/Server for buttplug-js",
   "main": "dist/src/index.js",
   "scripts": {
@@ -27,22 +27,23 @@
     "ws": "^4.0.0"
   },
   "peerDependencies": {
-    "buttplug": ">=0.5.x"
+    "buttplug": ">=0.6.x"
   },
   "devDependencies": {
-    "@types/jest": "^22.1.0",
-    "@types/node": "^9.3.0",
-    "buttplug": ">=0.5.x",
+    "@types/jest": "^22.1.2",
+    "@types/node": "^9.4.5",
+    "buttplug": ">=0.6.x",
     "codecov": "^3.0.0",
-    "commander": "^2.13.0",
-    "jest": "^22.1.4",
+    "commander": "^2.14.1",
+    "jest": "^22.2.2",
     "remap-istanbul": "^0.10.1",
-    "selfsigned": "^1.10.1",
+    "selfsigned": "^1.10.2",
     "tmp": "^0.0.33",
     "trash-cli": "^1.4.0",
-    "ts-jest": "^22.0.1",
+    "ts-jest": "^22.0.4",
     "tslint": "^5.9.1",
-    "typedoc": "^0.9.0"
+    "typedoc": "^0.10.0",
+    "typescript": "^2.7.1"
   },
   "jest": {
     "moduleFileExtensions": [
