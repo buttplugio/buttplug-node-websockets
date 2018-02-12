@@ -30,5 +30,5 @@ export declare class ButtplugNodeWebsocketClientConnector extends EventEmitter i
     /***
      * Called by ButtplugClient to verify connection status.
      */
-    IsConnected: () => boolean;
+    readonly Connected: boolean;
 }

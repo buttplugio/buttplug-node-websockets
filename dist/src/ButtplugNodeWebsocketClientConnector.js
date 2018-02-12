@@ -56,7 +56,7 @@ class ButtplugNodeWebsocketClientConnector extends events_1.EventEmitter {
          * Called by ButtplugClient to disconnect websocket connection.
          */
         this.Disconnect = () => {
-            if (!this.IsConnected()) {
+            if (!this.Connected) {
                 return;
             }
             this.wsClient.close();
@@ -66,20 +66,20 @@ class ButtplugNodeWebsocketClientConnector extends events_1.EventEmitter {
          * Called by ButtplugClient to send a message over the websocket.
          */
         this.Send = (msg) => {
-            if (!this.IsConnected()) {
+            if (!this.Connected) {
                 throw new Error("Not connected!");
             }
             // Make sure our message is packed in an array. Messy.
             this.wsClient.send("[" + msg.toJSON() + "]");
         };
-        /***
-         * Called by ButtplugClient to verify connection status.
-         */
-        this.IsConnected = () => {
-            return this.wsClient !== null;
-        };
         this.rejectUnauthorized = rejectUnauthorized;
         this.url = url;
+    }
+    /***
+     * Called by ButtplugClient to verify connection status.
+     */
+    get Connected() {
+        return this.wsClient !== null;
     }
 }
 exports.ButtplugNodeWebsocketClientConnector = ButtplugNodeWebsocketClientConnector;

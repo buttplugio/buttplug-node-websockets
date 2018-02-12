@@ -21,7 +21,8 @@ describe("Buttplug Node Websocket tests", () => {
     it("should connect insecurely to itself, scan, find test devices", function () {
         return __awaiter(this, void 0, void 0, function* () {
             const server = new index_1.ButtplugNodeWebsocketServer("Buttplug Test Websocket Server");
-            server.AddDeviceManager(devtools_1.TestDeviceManager.Get());
+            const deviceManager = new devtools_1.TestDeviceManager();
+            server.AddDeviceManager(deviceManager);
             // Insecure hosting, on localhost:12345
             server.StartInsecureServer(12345, "localhost");
             const connector = new index_1.ButtplugNodeWebsocketClientConnector("ws://localhost:12345/buttplug", false);
@@ -47,7 +48,7 @@ describe("Buttplug Node Websocket tests", () => {
                 yield server.StopServer();
                 res();
             }));
-            devtools_1.TestDeviceManager.Get().VibrationDevice.Disconnect();
+            deviceManager.VibrationDevice.Disconnect();
             return p;
         });
     });
