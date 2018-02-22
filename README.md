@@ -53,10 +53,9 @@ The client class provided with this library derives from the
 ButtplugServer class, and can be used as a standalone server.
 
 ```javascript
-let Buttplug = require('buttplug');
-let ButtplugNodeWebsockets = require('buttplug-node-websockets');
+const ButtplugNodeWebsockets = require('buttplug-node-websockets');
 
-let server = new ButtplugNodeWebsocket.ButtplugNodeWebsocketServer();
+const server = new ButtplugNodeWebsockets.ButtplugNodeWebsocketServer();
 
 // Insecure hosting, on localhost:12345
 server.StartInsecureServer()
@@ -80,8 +79,8 @@ IButtplugConnector interface, and needs to be passed to a
 ButtplugClient class during connection.
 
 ```javascript
-let Buttplug = require('buttplug');
-let ButtplugNodeWebsockets = require('buttplug-node-websockets');
+const Buttplug = require('buttplug');
+const ButtplugNodeWebsockets = require('buttplug-node-websockets');
 
 // The connector takes the websocket URL to connect to, and a boolean
 // to know whether to reject on cert fail if connecting via secure
@@ -92,10 +91,10 @@ let ButtplugNodeWebsockets = require('buttplug-node-websockets');
 // as the second argument so the cert if not rejected. If you will 
 // only be connecting to servers with actual CA verifiable certs,
 // pass 'true'.
-let connector = 
-  new ButtplugNodeWebsocket.ButtplugNodeWebsocketClientConnector("wss://localhost:12345/buttplug", false);
+const connector = 
+  new ButtplugNodeWebsockets.ButtplugNodeWebsocketClientConnector("wss://localhost:12345/buttplug", false);
 
-let bpc = new bp.ButtplugClient("test");
+const bpc = new Buttplug.ButtplugClient("test");
 bpc.Connect(connector);
 // ...
 ```
