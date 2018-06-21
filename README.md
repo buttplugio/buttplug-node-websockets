@@ -1,10 +1,17 @@
 # Buttplug Node Websockets
 
-[![npm](https://img.shields.io/npm/v/buttplug-node-websockets.svg)](https://npmjs.com/package/buttplug-node-websockets) [![Build Status](https://travis-ci.org/metafetish/buttplug-node-websockets.svg?branch=master)](https://travis-ci.org/metafetish/buttplug-node-websockets) [![codecov](https://codecov.io/gh/metafetish/buttplug-node-websockets/branch/master/graph/badge.svg)](https://codecov.io/gh/metafetish/buttplug-node-websockets) [![Patreon donate button](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/qdot)
+[![npm](https://img.shields.io/npm/v/buttplug-node-websockets.svg)](https://npmjs.com/package/buttplug-node-websockets) 
+[![Build Status](https://travis-ci.org/buttplugio/buttplug-node-websockets.svg?branch=master)](https://travis-ci.org/buttplugio/buttplug-node-websockets) 
+[![codecov](https://codecov.io/gh/buttplugio/buttplug-node-websockets/branch/master/graph/badge.svg)](https://codecov.io/gh/buttplugio/buttplug-node-websockets) 
+
+[![Patreon donate button](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/qdot)
+[![Discourse Forum](https://img.shields.io/badge/discourse-forum-blue.svg)](https://metafetish.club)
+[![Discord](https://img.shields.io/discord/353303527587708932.svg?logo=discord)](https://discord.buttplug.io)
+[![Twitter](https://img.shields.io/twitter/follow/buttplugio.svg?style=social&logo=twitter)](https://twitter.com/buttplugio)
 
 buttplug-node-websockets provides convenience client/server classes
 built on top of [ws](https://github.com/websockets/ws) and
-[buttplug-js](https://github.com/metafetish/buttplug-js). It allows
+[buttplug-js](https://github.com/buttplugio/buttplug-js). It allows
 developers to quickly integrate buttplug clients and servers into
 native node applications.
 
@@ -20,7 +27,7 @@ native node applications.
 
 If you find this project helpful, you
 can
-[support Metafetish projects via Patreon](http://patreon.com/qdot)!
+[support Buttplugio projects via Patreon](http://patreon.com/qdot)!
 Every donation helps us afford more hardware to reverse, document, and
 write code for!
 
@@ -41,7 +48,7 @@ for this to work correctly.
 ## API Documentation
 
 buttplug-node-websocket API Documentation is available at
-[https://metafetish.github.io/buttplug-node-websockets](https://metafetish.github.io/buttplug-node-websockets).
+[https://buttplug-node-websockets.docs.buttplug.io](https://buttplug-node-websockets.docs.buttplug.io).
 
 The documentation is rebuilt on every commit/merge to master.
 
@@ -104,7 +111,7 @@ bpc.Connect(connector);
 
 buttplug-js is BSD 3-Clause licensed.
 
-    Copyright (c) 2017, Metafetish
+    Copyright (c) 2017-2018, Nonpolynomial Labs, LLC
     All rights reserved.
     
     Redistribution and use in source and binary forms, with or without
